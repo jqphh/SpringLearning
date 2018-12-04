@@ -1,12 +1,15 @@
-package com.charlse.demo.service;
+package com.charlse.demo.dao;
 
+import org.apache.ibatis.annotations.Param;
 import java.sql.SQLException;
 
 public interface PersonDao {
     /**
      * 存储记录到person表
      *
-     * @param message
+     * @param perId
+     * @param age
+     * @param name
      * @throws SQLException
      */
     void addPerson(@Param("perId") Integer perId, @Param("age") Integer age, @Param("name") String name);
@@ -14,7 +17,7 @@ public interface PersonDao {
     /**
      * 从person表删除记录
      *
-     * @param message
+     * @param perId
      * @throws SQLException
      */
     void delPerson(@Param("perId") Integer perId);
