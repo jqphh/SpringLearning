@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.charlse.demo.service.PersonDao">
+
+    <!-- insert into dev_alarm -->
+    <insert id="addDevAlarm" parameterType="ipp.integrate.entity.Msg">
+        insert into person(perId, age, name) values(#{perId},#{age},#{name})
+    </insert>
+    <!-- delete the record from the table dev_switch -->
+    <delete id="delDevSwitch">
+        delete from person where perId=#{perId}
+    </delete>
+
+</mapper>
