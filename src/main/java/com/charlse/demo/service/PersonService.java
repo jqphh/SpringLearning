@@ -1,9 +1,9 @@
 package com.charlse.demo.service;
 
 public interface PersonService {
-    public String addMember(Integer perId, Integer age, String name);
+    public String addMember(String request);
 
-    public String delMember(Integer perId);
+    public String delMember(String request);
 
-    public String getMember(Integer perId);
+    public String getMember(String request);
 }
