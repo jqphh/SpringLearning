@@ -13,21 +13,21 @@ public class TestController {
     private PersonService personService;
 
     @PostMapping("/addMem")
-    public void addMem(@RequestBody String request) {
+    public String addMem(@RequestBody String request) {
         System.out.println(request);
         JSON json = JSON.parseObject(request);
         Integer id = ((JSONObject) json).getInteger("perId");
         Integer age = ((JSONObject) json).getInteger("age");
         String name = ((JSONObject) json).getString("name");
-        personService.addMember(id, age, name);
+        return personService.addMember(id, age, name);
     }
 
     @PostMapping("/delMem")
-    public void delMem(@RequestBody String request) {
+    public String delMem(@RequestBody String request) {
         System.out.println(request);
         JSON json = JSON.parseObject(request);
         Integer id = ((JSONObject) json).getInteger("perId");
         System.out.println(id);
-        personService.delMember(id);
+        return personService.delMember(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.charlse.demo.dao;
 
+import com.charlse.demo.service.PersonInfo;
 import org.apache.ibatis.annotations.Param;
 import java.sql.SQLException;
 
@@ -22,4 +23,11 @@ public interface PersonDao {
      */
     void delPerson(@Param("perId") Integer perId);
 
+    /**
+     * 从person表查询记录
+     *
+     * @param perId
+     * @throws SQLException
+     */
+    PersonInfo getPerson(@Param("perId") Integer perId);
 }
