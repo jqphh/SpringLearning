@@ -14,16 +14,17 @@ public class TestController {
 
     @PostMapping("/addMem")
     public void addMem(@RequestBody String request) {
+        System.out.println(request);
         JSON json = JSON.parseObject(request);
         Integer id = ((JSONObject) json).getInteger("perId");
         Integer age = ((JSONObject) json).getInteger("age");
         String name = ((JSONObject) json).getString("name");
-        System.out.println(id + age + name);
         personService.addMember(id, age, name);
     }
 
     @PostMapping("/delMem")
     public void delMem(@RequestBody String request) {
+        System.out.println(request);
         JSON json = JSON.parseObject(request);
         Integer id = ((JSONObject) json).getInteger("perId");
         System.out.println(id);

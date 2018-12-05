@@ -3,7 +3,7 @@
 <mapper namespace="com.charlse.demo.dao.PersonDao">
 
     <!-- insert into dev_alarm -->
-    <insert id="addPerson" parameterType="ipp.integrate.entity.Msg">
+    <insert id="addPerson">
         insert into person(perId, age, name) values(#{perId},#{age},#{name})
     </insert>
     <!-- delete the record from the table dev_switch -->

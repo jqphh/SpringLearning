@@ -6,15 +6,17 @@ import javax.annotation.Resource;
 
 @Service
 public class PersonHandle implements PersonService {
-    @Resource //装配bean
+    /*@Resource //装配bean
     public PersonDao personDao;
 
     public void addMember(Integer perId, Integer age, String name) {
         if(null != name) {
             personDao.addPerson(perId, age, name);
         }
-    }
+    }*/
+    public void addMember(Integer perId, Integer age, String name) {
 
+        }
     public void delMember(Integer perId) {
 
     }
