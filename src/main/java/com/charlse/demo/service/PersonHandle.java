@@ -17,14 +17,14 @@ public class PersonHandle implements PersonService {
         Integer age = ((JSONObject) json).getInteger("age");
         String name = ((JSONObject) json).getString("name");
 
-        //personDao.addPerson(id, age, name);
+        personDao.addPerson(id, age, name);
         return "{\"code\":\"1000\"}";
     }
 
     public String delMember(String request) {
         JSON json = JSON.parseObject(request);
         Integer id = ((JSONObject) json).getInteger("perId");
-        //personDao.delPerson(id);
+        personDao.delPerson(id);
         return "{\"code\":\"1000\"}";
     }
 
