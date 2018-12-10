@@ -2,13 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.charlse.demo.dao.PersonDao">
 
-    <!-- insert into dev_alarm -->
     <insert id="addPerson" parameterType="com.charlse.demo.service.PersonInfo">
         insert into person(perId, age, name) values(#{perId},#{age},#{name})
     </insert>
-    <!-- delete the record from the table dev_switch -->
+
     <delete id="delPerson">
         delete from person where perId=#{perId}
     </delete>
 
+    <select id="getPerson" resultType="com.charlse.demo.service.PersonInfo">
+        select * from person where perId=#{perId}
+    </select>
+
+    <select id="getAllPerson" resultType="com.charlse.demo.service.PersonInfo">
+        select * from person;
+    </select>
 </mapper>

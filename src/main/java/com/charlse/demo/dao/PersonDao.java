@@ -3,31 +3,15 @@ package com.charlse.demo.dao;
 import com.charlse.demo.service.PersonInfo;
 import org.apache.ibatis.annotations.Param;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public interface PersonDao {
-    /**
-     * 存储记录到person表
-     *
-     * @param perId
-     * @param age
-     * @param name
-     * @throws SQLException
-     */
-    void addPerson(@Param("perId") Integer perId, @Param("age") Integer age, @Param("name") String name);
 
-    /**
-     * 从person表删除记录
-     *
-     * @param perId
-     * @throws SQLException
-     */
-    void delPerson(@Param("perId") Integer perId);
+    void addPerson(PersonInfo person);
 
-    /**
-     * 从person表查询记录
-     *
-     * @param perId
-     * @throws SQLException
-     */
-    PersonInfo getPerson(@Param("perId") Integer perId);
+    void delPerson(@Param("perId") Integer perId) throws SQLException;
+
+    PersonInfo getPerson(@Param("perId") Integer perId) throws SQLException;
+
+    ArrayList<PersonInfo> getAllPerson() throws SQLException;
 }

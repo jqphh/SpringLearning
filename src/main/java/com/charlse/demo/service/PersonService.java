@@ -6,4 +6,6 @@ public interface PersonService {
     public String delMember(String request);
 
     public String getMember(String request);
+
+    public String getAllMember(String request);
 }

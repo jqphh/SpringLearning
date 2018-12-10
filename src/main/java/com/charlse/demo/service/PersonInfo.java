@@ -6,7 +6,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class PersonInfo {
-    private Integer personId;
-    private Integer age;
+    private int perId;
+    private int age;
     private String name;
 }

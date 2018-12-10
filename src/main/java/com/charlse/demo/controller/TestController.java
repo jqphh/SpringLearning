@@ -12,13 +12,21 @@ public class TestController {
 
     @PostMapping("/addMem")
     public String addMem(@RequestBody String request) {
-        System.out.println(request);
         return personService.addMember(request);
     }
 
     @PostMapping("/delMem")
     public String delMem(@RequestBody String request) {
-        System.out.println(request);
         return personService.delMember(request);
+    }
+
+    @PostMapping("/getMem")
+    public String getMem(@RequestBody String request) {
+        return personService.getMember(request);
+    }
+
+    @PostMapping("/getAllMem")
+    public String getAllMem(@RequestBody String request) {
+        return personService.getAllMember(request);
     }
 }
