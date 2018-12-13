@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户</title>
+</head>
+<body>
+    <form action="/addMem" method="post">
+        <div class="id">
+            <input type="text" placeholder="编号" id="personId"   maxlength="20"/>
+        </div>
+        <div class="age">
+            <input type="text" placeholder="年龄" id="personAge"  maxlength="20"/>
+        </div>
+        <div class="name">
+            <input type="text" placeholder="姓名" id="personName" maxlength="20"/>
+        </div>
+        <div class="img">
+            <input type="file" placeholder="图片" id="personImg"/>
+        </div>
+        <div class="submit">
+            <input type="submit" id='submit' value="添加用户"/>
+        </div>
+    </form>
+
+    <script>
+        var convert_FormData_to_json = function (formData) {
+            var objData = {};
+            for (var entry of formData.entries()){
+                objData[entry[0]] = entry[1];
+            }
+            return JSON.stringify(objData);
+        };
+
+        //根据Form生成json数据
+        var formObj = document.querySelector('form');
+        formObj.addEventListener('submit', function(event){
+            event.preventDefault();
+            console.log(convert_FormData_to_json(new FormData(formObj)));
+            console.log("test");
+        }, false);
+    </script>
+</body>
+</html>

@@ -5,13 +5,19 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping(value = "/test")
+//@RequestMapping(value = "/")
 public class TestController {
     @Resource //装配bean
     private PersonService personService;
 
+    /*@GetMapping("/index")
+    public String index(@RequestBody String request) {
+        return "/static/index.html";
+    }*/
+
     @PostMapping("/addMem")
     public String addMem(@RequestBody String request) {
+        System.out.println(request);
         return personService.addMember(request);
     }
 
