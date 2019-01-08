@@ -4,7 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.charlse.demo.dao.PersonDao;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,25 +17,23 @@ public class PersonHandle implements PersonService {
     @Resource //装配bean
     public PersonDao personDao;
 
-    public String addMember(String request) {
-        JSON json = JSON.parseObject(request);
-        Integer id = ((JSONObject) json).getInteger("perId");
-        Integer age = ((JSONObject) json).getInteger("age");
-        String name = ((JSONObject) json).getString("name");
+    public String addMember(MultipartFile personImg, int personId, int personAge, String personName) {
+        if(personImg.isEmpty()) {
+            return "{\"code\":\"empty file\"}";
+        }
+
+        String fileName = personImg.getOriginalFilename();
+        int fileSize = (int) personImg.getSize();
+
+        System.out.println("filename->" + fileName + ", fileSize->" + fileSize);
+        String path = "E:";
+        File dest = new File(path + "/" + "sprint.jpg");
 
         try {
-            PersonInfo pInfo = personDao.getPerson(id);
-            if(null != pInfo) {
-                return "{\"code\":\"Already exists\"}";
-            } else {
-                PersonInfo person = new PersonInfo();
-                person.setPerId(id);
-                person.setAge(age);
-                person.setName(name);
-                personDao.addPerson(person);
-            }
-        } catch(SQLException e) {
-            return "{\"code\":\"error\"}";
+            personImg.transferTo(dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "{\"code\":\"failed\"}";
         }
         return "{\"code\":\"success\"}";
     }

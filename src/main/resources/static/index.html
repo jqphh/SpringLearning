@@ -5,24 +5,25 @@
     <title>用户</title>
 </head>
 <body>
-    <form action="/addMem" method="post">
+    <!-- Content-Type：multipart/form-data  二进制传输方式-->
+    <form id="addMemForm" action="/addMem" method="post" enctype="multipart/form-data">
         <div class="id">
-            <input type="text" placeholder="编号" id="personId"   maxlength="20"/>
+            <input type="text" placeholder="编号" name="personId"   maxlength="20"/>
         </div>
         <div class="age">
-            <input type="text" placeholder="年龄" id="personAge"  maxlength="20"/>
+            <input type="text" placeholder="年龄" name="personAge"  maxlength="20"/>
         </div>
         <div class="name">
-            <input type="text" placeholder="姓名" id="personName" maxlength="20"/>
+            <input type="text" placeholder="姓名" name="personName" maxlength="20"/>
         </div>
         <div class="img">
-            <input type="file" placeholder="图片" id="personImg"/>
+            <input type="file" placeholder="图片" name="personImg"/>
         </div>
         <div class="submit">
             <input type="submit" id='submit' value="添加用户"/>
         </div>
     </form>
-
+    <!--
     <script>
         var convert_FormData_to_json = function (formData) {
             var objData = {};
@@ -40,5 +41,6 @@
             console.log("test");
         }, false);
     </script>
+    -->
 </body>
 </html>

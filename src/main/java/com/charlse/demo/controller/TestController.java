@@ -2,6 +2,8 @@ package com.charlse.demo.controller;
 
 import com.charlse.demo.service.PersonService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.annotation.Resource;
 
 @RestController
@@ -10,15 +12,11 @@ public class TestController {
     @Resource //装配bean
     private PersonService personService;
 
-    /*@GetMapping("/index")
-    public String index(@RequestBody String request) {
-        return "/static/index.html";
-    }*/
-
     @PostMapping("/addMem")
-    public String addMem(@RequestBody String request) {
-        System.out.println(request);
-        return personService.addMember(request);
+    @ResponseBody
+    public String addMem(@RequestParam("personImg") MultipartFile perImg, @RequestParam("personId") int perId,
+                         @RequestParam("personAge") int perAge, @RequestParam("personName") String perName) {
+        return personService.addMember(perImg, perId, perAge, perName);
     }
 
     @PostMapping("/delMem")
